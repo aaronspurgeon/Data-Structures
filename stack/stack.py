@@ -29,15 +29,5 @@ class Stack:
         return self.storage.append(value)
 
     def pop(self):
-        return self.storage.pop()
-
-
-new_stack = Stack()
-new_stack.storage = [1, 2, 3, 4, 5]
-new_stack.push(105)
-for i in new_stack.storage:
-    print(i)
-new_stack.pop()
-print('the pop occurs')
-for i in new_stack.storage:
-    print(i)
+        if len(self.storage) > 0:
+            return self.storage.pop()

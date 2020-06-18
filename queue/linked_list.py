@@ -66,12 +66,3 @@ class LinkedList:
             self.head = self.head.next_node
 
         return current_node
-
-
-new_linked = LinkedList()
-new_linked.add_to_head(5)
-new_linked.add_to_head(3)
-new_linked.add_to_head(2)
-new_linked.add_to_head(4)
-
-print(new_linked.get_max())
