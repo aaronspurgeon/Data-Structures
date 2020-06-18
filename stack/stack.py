@@ -20,13 +20,24 @@ return elements in Last In First Out order.
 class Stack:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
+        self.storage = []
 
     def __len__(self):
-        pass
+        return len(self.storage)
 
     def push(self, value):
-        pass
+        return self.storage.append(value)
 
     def pop(self):
-        pass
+        return self.storage.pop()
+
+
+new_stack = Stack()
+new_stack.storage = [1, 2, 3, 4, 5]
+new_stack.push(105)
+for i in new_stack.storage:
+    print(i)
+new_stack.pop()
+print('the pop occurs')
+for i in new_stack.storage:
+    print(i)

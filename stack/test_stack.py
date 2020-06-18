@@ -1,12 +1,14 @@
 import unittest
 from stack import Stack
 
+
 class QueueTests(unittest.TestCase):
     def setUp(self):
         self.stack = Stack()
 
     def test_len_returns_0_for_empty_stack(self):
         self.assertEqual(len(self.stack), 0)
+        print('pass')
 
     def test_len_returns_correct_length_after_push(self):
         self.assertEqual(len(self.stack), 0)
@@ -22,10 +24,12 @@ class QueueTests(unittest.TestCase):
         self.stack.push(16)
         self.stack.push(18)
         self.assertEqual(len(self.stack), 9)
+        print('pass')
 
     def test_empty_pop(self):
         self.assertIsNone(self.stack.pop())
         self.assertEqual(len(self.stack), 0)
+        print('pass')
 
     def test_pop_respects_order(self):
         self.stack.push(100)
