@@ -8,6 +8,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+        self._nodes = None
 
     def add_to_head(self, value):
         new_node = Node(value)
@@ -41,6 +42,26 @@ class LinkedList:
         self.head = self.head.next_node
         return head_value
 
+    def remove_tail(self):
+        # Checks whether list is empty
+        if(self.head == None):
+            return
+        else:
+            # Checks whether contain only one element
+            if(self.head != self.tail):
+                current = self.head
+                # Loop will iterate till the second last element as current.next is pointing to tail
+                while(current.next_node != self.tail):
+                    current = current.next_node
+                # Second last element will be new tail
+                self.tail = current
+                # Tail will point to head as it is a circular linked list
+                self.tail.next_node = self.head
+            # If the list contains only one element
+            # Then it will remove it and both head and tail will point to null
+            else:
+                self.head = self.tail = None
+
     def contains(self, value):
         if self.head is None:
             return False
@@ -52,6 +73,16 @@ class LinkedList:
 
             current_node = current_node.next_node
         return False
+
+    def get_length(self):
+
+        temp = self.head
+        count = 0
+
+        while (temp):
+            count += 1
+            temp = temp.next_node
+        return count
 
     def get_max(self):
         if self.head is None:
