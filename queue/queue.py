@@ -44,14 +44,7 @@ class Queue:
         self.storage = LinkedList()
 
     def __len__(self):
-        temp = self.storage.head  # Initialise temp
-        count = 0  # Initialise count
-
-        # Loop while end of linked list is not reached
-        while (temp):
-            count += 1
-            temp = temp.next_node
-        return count
+        return self.storage.get_length()
 
     def enqueue(self, value):
         return self.storage.add_to_tail(value)
