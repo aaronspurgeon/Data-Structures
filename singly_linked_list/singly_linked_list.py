@@ -54,24 +54,24 @@ class LinkedList:
         return False
 
     def get_max(self):
-        if self.head is None:
-            return self.head
+        if not self.head:
+            return None
 
-        current_node = 0
-        next_n = self.head.next_node
+        current_node = self.head
+        max_value = self.head.value
 
-        while self.head is not None:
-            if current_node <= next_n.value:
-                current_node = next_n.value
-            self.head = self.head.next_node
+        while current_node:
+            if current_node.value > max_value:
+                max_value = current_node.value
+            current_node = current_node.next_node
 
-        return current_node
+        return max_value
 
 
 new_linked = LinkedList()
-new_linked.add_to_head(5)
+
 new_linked.add_to_head(3)
 new_linked.add_to_head(2)
-new_linked.add_to_head(4)
+new_linked.add_to_head(5)
 
 print(new_linked.get_max())
