@@ -26,13 +26,15 @@ return elements in Last In First Out order.
 #         self.storage = []
 
 #     def __len__(self):
-#         return len(self.storage)
+#         return self.size
 
 #     def push(self, value):
+#         self.size += 1
 #         return self.storage.append(value)
 
 #     def pop(self):
 #         if len(self.storage) > 0:
+#             self.size -= 1
 #             return self.storage.pop()
 
 # linked list for data structure
@@ -42,13 +44,18 @@ class Stack:
         self.storage = LinkedList()
 
     def __len__(self):
-        return self.storage.get_length()
+        return self.size
 
     def push(self, value):
-        return self.storage.add_to_tail(value)
+        self.size += 1
+        return self.storage.add_to_head(value)
 
     def pop(self):
-        return self.storage.remove_tail()
+        if self.size == 0:
+            return None
+        self.size -= 1
+        node = self.storage.remove_head()
+        return node
 
 
 new_stack = Stack()
@@ -56,6 +63,5 @@ new_stack.push(1)
 new_stack.push(2)
 new_stack.push(3)
 new_stack.push(4)
-print(new_stack.__len__())
-new_stack.pop()
+print(new_stack.pop())
 print(new_stack.__len__())
