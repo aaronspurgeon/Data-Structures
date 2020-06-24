@@ -1,0 +1,1 @@
+new_linked.add_to_tail(5)
